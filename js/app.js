@@ -49,9 +49,8 @@ const game = {
 const blocks = [];
 let blockNumber = 1;
 class Block {
-    constructor(type) {
-        let randomXCoordinate = Math.floor(Math.random() * 16);
-        this.xCoordinate = randomXCoordinate;
+    constructor(type, x) {
+        this.xCoordinate = x;
         this.yCoordinate = 12;
         this.type = type;
         this.blockNumber = blockNumber;
@@ -61,7 +60,8 @@ class Block {
     }
 
     renderBlock() {
-        if ($(`.game-square-${this.xCoordinate}-12`).hasClass(this.type)) {
+        if ($(`.game-square-${this.xCoordinate}-12`).hasClass("stone") || $(`.game-square-${this.xCoordinate}-12`).hasClass("gold")) {
+            console.log("cannot make block")
         } else {
         $(`.game-square-${this.xCoordinate}-12`).addClass(this.type);
         $(`.game-square-${this.xCoordinate}-12`).attr("block", this.blockNumber);
@@ -98,7 +98,7 @@ class KillObject {
 
     }
     renderMole() {
-        if ($(`.game-square-${this.xCoordinate - 1}-12`).hasClass("guy")) {
+        if ($(`.game-square-${this.xCoordinate}-0`).hasClass("guy")) {
             console.log("cannot make mole")
         } else {
             $(`.game-square-${this.xCoordinate}-0`).addClass("mole");
@@ -222,10 +222,10 @@ const guy = {
                 $("#player-lives").text(`Lives: ${this.lives}`);
             }
             collisionPoint.removeClass("mole");
-            collisionPoint.addClass("ouch");
+            collisionPoint.addClass("mole-contact");
             collisionPoint.removeClass("flipped")
             setTimeout(() => {
-                collisionPoint.removeClass("ouch");
+                collisionPoint.removeClass("mole-contact");
                 collisionPoint.addClass("flipped");
 
             }, 300);
@@ -281,10 +281,18 @@ $(document).on("keydown", (e) => {
 });
 
 const blockInterval = () => {
+    let randNums = [];
+    while (randNums.length < 2) {
+        let randomNumber = Math.floor(Math.random() * 12);
+            if(randNums.includes(randomNumber) == false) {
+            randNums.push(randomNumber);
+            console.log(randNums);
+        }
+    }
     game.blocksMove = setInterval(() => {
         guy.levelUp();
-        const gold = new Block("gold");
-        const stone = new Block("stone");
+        const gold = new Block("gold", randNums[0]);
+        const stone = new Block("stone", randNums[1]);
         gold.renderBlock();
         stone.renderBlock();
     },4000)
