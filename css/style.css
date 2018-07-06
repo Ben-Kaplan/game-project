@@ -1,10 +1,167 @@
-body {
-    background-color: white;
+
+body{
+    background-image: url("../images/background-texture.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+h1 {
+    text-align: center;
+    font-family: 'Wendy One', sans-serif;
+    color: #E6B517;
+    font-size: 75px;
+    text-shadow: 6px 6px black;
+    letter-spacing: 15px;
+    margin-top: 100px;
+}
+.game-board {
+    background-color: #7CEB8B;
+    border: 6px solid #E6B517;
+    border-radius: 3.5%;
+    width: 667px;
+    height: 665px;
+    padding-left: 5px;
+    padding-right: 3px;
+    padding-top: 6px;
+    margin: 0 auto;
+    margin-top: -46px;
+
+}
+.game-over {
+    background-color: black;
+    border: 6px solid #E6B517;
+    border-radius: 3.5%;
+    width: 667px;
+    height: 665px;
+    padding-left: 5px;
+    padding-right: 3px;
+    padding-top: 6px;
+    margin: 0 auto;
+    margin-top: -46px;
+}
+.game-row {
+    display: inline-block;
+    margin-left: 3px;
+    margin-top: 1px;
+
+
 }
 .game-square {
     width: 50px;
     height: 50px;
-    margin: 3px;
-    background-color: green;
+    background-color: #7CEB8B;
     display: inline-block;
+}
+#score-board {
+    border: 4px solid #E6B517;
+    border-radius: 3.5%;
+    background-color: #7CEB8B;
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 15px;
+
+}
+#player-score {
+    display: inline-block;
+    margin-right: 6px;
+
+    font-family: 'Wendy One', sans-serif;
+    letter-spacing: 3px;
+
+
+
+}
+#game-level {
+    display: inline-block;
+    margin-right: 6px;
+    margin-left: 6px;
+    font-family: 'Wendy One', sans-serif;
+    letter-spacing: 3px;
+
+
+}
+#player-lives {
+    display: inline-block;
+    margin-left: 6px;
+    font-family: 'Wendy One', sans-serif;
+    letter-spacing: 3px;
+}
+#start-button {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+#start-game {
+ width: 105px;
+ height: 40px;
+ color: black;
+ background-color: #E6B517;
+ border: 3px solid #E6B517;
+ border-radius: 5%;
+ font-family: 'Wendy One', sans-serif;
+ letter-spacing: 2px;
+ margin-bottom: 80px;
+}
+
+.guy {
+	width: 50px;
+    height: 50px;
+    background-image: url("../images/miner.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.stone {
+    width: 50px;
+    height: 50px;
+
+    background-image: url("../images/stone.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.gold {
+    width: 50px;
+    height: 50px;
+
+    background-image: url("../images/gold-image.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.mole {
+    width: 50px;
+    height: 50px;
+
+    background-image: url("../images/mole-image2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.pointEarned {
+    background-image: url("https://www.favicon.cc/logo3d/41167.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.ouch {
+    background-image: url("https://images.vexels.com/media/users/3/145337/isolated/lists/4d3734954c38b808bbb12f09b6b35694-ouch-illustration.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.flipped {
+    transform: scale(-1, 1);
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+
+}
+.bounce {
+    position: relative;
 }
