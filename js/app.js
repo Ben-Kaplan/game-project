@@ -281,16 +281,17 @@ $(document).on("keydown", (e) => {
 });
 
 const blockInterval = () => {
-    let randNums = [];
-    while (randNums.length < 2) {
+    
+    game.blocksMove = setInterval(() => {
+        guy.levelUp();
+        let randNums = [];
+        while (randNums.length < 2) {
         let randomNumber = Math.floor(Math.random() * 12);
             if(randNums.includes(randomNumber) == false) {
             randNums.push(randomNumber);
             console.log(randNums);
         }
     }
-    game.blocksMove = setInterval(() => {
-        guy.levelUp();
         const gold = new Block("gold", randNums[0]);
         const stone = new Block("stone", randNums[1]);
         gold.renderBlock();
